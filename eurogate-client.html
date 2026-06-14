@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EuroGate.ai — 主权级 AI 路由 · Sovereign AI Routing</title>
+<meta name="description" content="EuroGate.ai — German-engineered, EU-hosted, GDPR-compliant gateway to premium AI. Anti-carding, zero-log, multi-node resilient. 主权级 AI 路由，源自德国工程技术。" />
+
+<!-- Open Graph / SNS link previews -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="EuroGate.ai — Sovereign AI Routing · 主权级 AI 路由" />
+<meta property="og:description" content="德国工程 · 欧洲托管 · GDPR 合规 · 零日志审计 · 拒绝盗卡。The secure, high-speed gateway to premium AI." />
+<meta property="og:image" content="assets/cn-combo-security.png" />
+<meta property="og:url" content="https://eurogate.ai" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="EuroGate.ai — Sovereign AI Routing" />
+<meta name="twitter:description" content="德国工程 · 欧洲托管 · GDPR 合规 · 零日志审计。Secure gateway to premium AI." />
+<meta name="twitter:image" content="assets/cn-combo-security.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:#04070D; --bg2:#0A0F1A; --bg3:#0E1626;
+  --panel:rgba(16,26,44,.55); --panel-brd:rgba(75,225,170,.14);
+  --green:#2BE68A; --green-soft:#7CF7C0; --cyan:#27C7FF; --cyan-soft:#8CE3FF;
+  --ink:#EAF2F7; --muted:#90A4BC; --faint:#5C7088;
+  --accent:linear-gradient(118deg,#2BE68A 0%,#27C7FF 100%);
+  --glow-green:0 0 38px rgba(43,230,138,.45);
+  --maxw:1180px;
+  --display:"Sora","Noto Sans SC","Noto Sans KR",sans-serif;
+  --body:"Manrope","Noto Sans SC","Noto Sans KR",system-ui,sans-serif;
+  --mono:"JetBrains Mono","Noto Sans SC",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body); color:var(--ink); background:var(--bg);
+  -webkit-font-smoothing:antialiased; line-height:1.6; overflow-x:hidden;
+}
+body::before{ /* ambient field */
+  content:""; position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(900px 600px at 78% -8%, rgba(39,199,255,.16), transparent 60%),
+    radial-gradient(820px 560px at 6% 12%, rgba(43,230,138,.16), transparent 60%),
+    radial-gradient(1100px 800px at 50% 120%, rgba(20,60,90,.30), transparent 60%),
+    var(--bg);
+}
+body::after{ /* grid */
+  content:""; position:fixed; inset:0; z-index:-1; opacity:.5;
+  background-image:
+    linear-gradient(rgba(80,140,170,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(80,140,170,.06) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 80%);
+          mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 80%);
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.grad-text{background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mono{font-family:var(--mono)}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:linear-gradient(180deg,rgba(4,7,13,.88),rgba(4,7,13,.55));
+  border-bottom:1px solid rgba(80,140,170,.12)}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:68px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.2px}
+.brand .dot{color:var(--green)}
+.nav-spacer{flex:1}
+.langsw{display:flex;gap:4px;padding:4px;border:1px solid rgba(80,140,170,.18);border-radius:999px;background:rgba(10,16,28,.6)}
+.langsw button{font-family:var(--body);font-weight:600;font-size:13px;color:var(--muted);background:none;border:0;
+  padding:6px 12px;border-radius:999px;cursor:pointer;transition:.18s}
+.langsw button.active{color:#04140d;background:var(--accent);box-shadow:var(--glow-green)}
+.langsw button:hover:not(.active){color:var(--ink)}
+.btn{font-family:var(--body);font-weight:700;font-size:14px;border-radius:11px;padding:11px 18px;cursor:pointer;
+  border:1px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn-primary{background:var(--accent);color:#03130c;box-shadow:var(--glow-green)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(43,230,138,.6)}
+.btn-ghost{background:rgba(255,255,255,.04);border-color:rgba(124,247,192,.3);color:var(--ink)}
+.btn-ghost:hover{background:rgba(43,230,138,.1);border-color:var(--green)}
+.nav .btn{padding:9px 15px}
+.nav-cta-only{display:inline-flex}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:96px 0 86px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.34;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 45%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 0%,#000 45%,transparent 100%)}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(800px 500px at 70% 30%,transparent,rgba(4,7,13,.7))}
+.hero .wrap{position:relative;z-index:1;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--green-soft);border:1px solid rgba(124,247,192,.25);
+  padding:7px 15px;border-radius:999px;background:rgba(43,230,138,.06);margin-bottom:26px}
+.eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+h1.hero-title{font-family:var(--display);font-weight:800;font-size:clamp(38px,6.2vw,76px);line-height:1.04;letter-spacing:-1px;margin-bottom:22px}
+.hero-sub{font-size:clamp(16px,2vw,21px);color:var(--muted);max-width:680px;margin:0 auto 36px;font-weight:500}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-cta .btn{padding:15px 26px;font-size:15.5px}
+.trust-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:12.5px;color:var(--cyan-soft);border:1px solid rgba(39,199,255,.2);
+  background:rgba(39,199,255,.05);padding:8px 14px;border-radius:9px;display:flex;align-items:center;gap:7px}
+.chip svg{width:14px;height:14px}
+
+/* ---------- Sections ---------- */
+section{padding:78px 0;position:relative}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 52px}
+.kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}
+.sec-head p{color:var(--muted);font-size:17px}
+
+.cards{display:grid;gap:20px}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.cards.c4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel);border:1px solid var(--panel-brd);border-radius:18px;padding:28px;
+  backdrop-filter:blur(8px);transition:.25s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:var(--accent);opacity:0;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(43,230,138,.4);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.card:hover::before{opacity:1}
+.ico{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;margin-bottom:18px;
+  background:rgba(43,230,138,.1);border:1px solid rgba(43,230,138,.25)}
+.ico svg{width:26px;height:26px;stroke:var(--green);fill:none;stroke-width:1.7}
+.card h3{font-family:var(--display);font-weight:700;font-size:19px;margin-bottom:10px}
+.card p{color:var(--muted);font-size:14.5px}
+.card .num{font-family:var(--mono);font-size:13px;color:var(--cyan);margin-bottom:6px}
+
+/* difference cards */
+.diff .ico{background:rgba(39,199,255,.09);border-color:rgba(39,199,255,.25)}
+.diff .ico svg{stroke:var(--cyan)}
+.diff .tag{display:inline-block;font-family:var(--mono);font-size:11px;color:#FF8B8B;border:1px solid rgba(255,139,139,.3);
+  background:rgba(255,139,139,.07);padding:3px 8px;border-radius:6px;margin-top:12px}
+
+/* trust list */
+.trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.trust-item{display:flex;gap:16px;background:var(--panel);border:1px solid var(--panel-brd);border-radius:16px;padding:24px}
+.trust-item .ico{flex:0 0 auto;margin:0}
+.trust-item h3{font-family:var(--display);font-size:17px;margin-bottom:7px}
+.trust-item p{color:var(--muted);font-size:14px}
+
+/* architecture */
+.arch{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.arch-copy h2{text-align:left}
+.arch-list{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:16px}
+.arch-list li{display:flex;gap:13px;color:var(--muted);font-size:15px}
+.arch-list .bullet{flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:rgba(43,230,138,.12);
+  display:grid;place-items:center;margin-top:2px}
+.arch-list .bullet svg{width:13px;height:13px;stroke:var(--green);fill:none;stroke-width:2.4}
+.arch-list strong{color:var(--ink);font-weight:700}
+.arch-visual{background:var(--panel);border:1px solid var(--panel-brd);border-radius:20px;padding:26px;backdrop-filter:blur(8px)}
+.arch-visual svg{width:100%;height:auto}
+
+/* providers */
+.prov-group{margin-bottom:30px}
+.prov-cat{display:flex;align-items:center;gap:10px;margin-bottom:16px;justify-content:center}
+.prov-cat .cat-ico{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(39,199,255,.1);border:1px solid rgba(39,199,255,.25)}
+.prov-cat .cat-ico svg{width:17px;height:17px;stroke:var(--cyan);fill:none;stroke-width:1.8}
+.prov-cat h3{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink)}
+.prov-cat .cat-line{flex:0 0 40px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.pchips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.pchip{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--panel-brd);
+  border-radius:13px;padding:11px 16px;backdrop-filter:blur(8px);transition:.22s;min-width:0}
+.pchip:hover{transform:translateY(-3px);border-color:rgba(43,230,138,.4);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.pchip .logo{width:26px;height:26px;flex:0 0 auto;display:grid;place-items:center}
+.pchip .logo svg{width:24px;height:24px}
+.pchip .pname{font-family:var(--display);font-weight:600;font-size:14.5px;line-height:1.1;white-space:nowrap}
+.pchip .pmeta{display:block;font-family:var(--mono);font-size:10.5px;color:var(--faint);font-weight:400;margin-top:2px}
+.prov-note{text-align:center;color:var(--faint);font-size:12.5px;margin-top:26px;font-family:var(--mono)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gitem{border-radius:16px;overflow:hidden;border:1px solid var(--panel-brd);background:var(--bg2);position:relative;transition:.25s}
+.gitem:hover{transform:translateY(-4px);border-color:rgba(43,230,138,.4);box-shadow:0 18px 45px rgba(0,0,0,.5)}
+.gitem img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.gitem figcaption{padding:14px 16px;font-size:13px;color:var(--muted);border-top:1px solid rgba(80,140,170,.1)}
+.gitem figcaption b{display:block;color:var(--ink);font-family:var(--display);font-weight:600;font-size:14px;margin-bottom:3px}
+.gitem .badge{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:11px;background:rgba(4,7,13,.8);
+  color:var(--green-soft);border:1px solid rgba(124,247,192,.3);padding:4px 9px;border-radius:7px;backdrop-filter:blur(4px)}
+
+/* final cta */
+.finalcta{text-align:center;background:
+  radial-gradient(700px 360px at 50% 0%,rgba(43,230,138,.12),transparent 70%);}
+.finalcta .panel{background:var(--panel);border:1px solid rgba(43,230,138,.25);border-radius:26px;padding:56px 32px;
+  backdrop-filter:blur(10px);position:relative;overflow:hidden}
+.finalcta h2{font-size:clamp(28px,4vw,46px)}
+.finalcta .domain{font-family:var(--mono);font-size:15px;color:var(--cyan);margin-top:8px;letter-spacing:1px}
+
+/* footer */
+footer{border-top:1px solid rgba(80,140,170,.12);padding:34px 0;color:var(--faint);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footflags{display:flex;gap:14px;font-family:var(--mono)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:920px){
+  .cards.c3,.cards.c4{grid-template-columns:repeat(2,1fr)}
+  .arch{grid-template-columns:1fr;gap:28px}
+  .arch-copy h2{text-align:center}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .trust-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav .brand span.full{display:none}
+  .langsw button{padding:6px 9px;font-size:12px}
+  .nav-cta-only{display:none}
+  .cards.c3,.cards.c4,.gallery{grid-template-columns:1fr}
+  section{padding:56px 0}
+  .hero{padding:64px 0 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="40" y2="40">
+          <stop offset="0" stop-color="#2BE68A"/><stop offset="1" stop-color="#27C7FF"/></linearGradient></defs>
+        <path d="M7 33V18C7 11.4 12.4 6 19 6h2c6.6 0 12 5.4 12 12v15" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M13 33V19a7 7 0 0 1 7-7h0a7 7 0 0 1 7 7v14" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+        <circle cx="20" cy="33" r="2.6" fill="#2BE68A"/>
+        <circle cx="7" cy="33" r="2.2" fill="#27C7FF"/><circle cx="33" cy="33" r="2.2" fill="#27C7FF"/>
+      </svg>
+      <span class="full">EuroGate<span class="dot">.ai</span></span>
+    </a>
+    <div class="nav-spacer"></div>
+    <div class="langsw" role="group" aria-label="Language">
+      <button data-lang="zh" class="active" onclick="setLang('zh')">中文</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+      <button data-lang="ko" onclick="setLang('ko')">한국어</button>
+    </div>
+    <a href="#cta" class="btn btn-primary nav-cta-only" data-i18n="nav_cta">立即获取密钥</a>
+  </div>
+</nav>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-bg"><img src="assets/banner-global.png" alt="EuroGate.ai secure European AI routing" /></div>
+  <div class="wrap">
+    <span class="eyebrow"><span class="pulse"></span><span data-i18n="hero_eyebrow">德国工程 · 欧洲托管 · GDPR 合规</span></span>
+    <h1 class="hero-title"><span class="grad-text" data-i18n="hero_title_a">主权级 AI 路由</span><br><span data-i18n="hero_title_b">源自德国工程技术</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">开启高端 AI 的安全通道。服务器完全托管于欧洲核心节点，极速、稳定且 100% 符合 GDPR 隐私标准。</p>
+    <div class="hero-cta">
+      <a href="#cta" class="btn btn-primary" data-i18n="hero_cta1">立即获取安全 API 密钥</a>
+      <a href="#difference" class="btn btn-ghost" data-i18n="hero_cta2">开启极速测试通道</a>
+    </div>
+    <div class="trust-chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg><span data-i18n="chip_gdpr">GDPR 合规</span></span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span data-i18n="chip_zerolog">零日志审计</span></span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="chip_latency">超低延迟</span></span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 6"/></svg><span data-i18n="chip_legit">100% 正规货源</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PILLARS ============ -->
+<section id="pillars">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker" data-i18n="pillars_kicker">核心价值</div>
+      <h2 data-i18n="pillars_title">为什么选择 EuroGate.ai</h2>
+      <p data-i18n="pillars_sub">为企业级高频调用而生 —— 安全、合规、稳定。</p>
+    </div>
+    <div class="cards c3">
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div>
+        <div class="num">01</div>
+        <h3 data-i18n="p1_h">欧洲主权级隐私安全</h3>
+        <p data-i18n="p1_p">托管于德国法兰克福。支持"零数据留存"策略，100% 遵循欧盟 GDPR 标准。您的提示词与商业机密永不用于模型训练。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <div class="num">02</div>
+        <h3 data-i18n="p2_h">德系工程级极致性能</h3>
+        <p data-i18n="p2_p">高并发多代理智能路由，超低延迟响应，以及强韧的容灾备份架构。专为企业级高频调用而生。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="num">03</div>
+        <h3 data-i18n="p3_h">企业级合规与信誉保证</h3>
+        <p data-i18n="p3_p">彻底杜绝盗卡或批量刷号等不稳定货源。承诺无"模型欺骗"，提供持续高可用的正版 API 服务。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFFERENCE ============ -->
+<section id="difference" class="diff">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker" data-i18n="diff_kicker">核心差异化优势</div>
+      <h2 data-i18n="diff_title">EuroGate 与灰色代理商的区别</h2>
+      <p data-i18n="diff_sub">告别频繁断连、隐私泄露与封号风险。</p>
+    </div>
+    <div class="cards c4">
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg></div>
+        <h3 data-i18n="d1_h">拒绝盗卡欺诈</h3>
+        <p data-i18n="d1_p">100% 采用合法合规的支付渠道，彻底规避因上游盗刷信用卡导致的服务封禁与法务风险。</p>
+        <span class="tag" data-i18n="d1_t">Anti-Carding</span>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c0-3.3 2.7-5 6-5s6 1.7 6 5M17 7l4 4m0-4l-4 4"/></svg></div>
+        <h3 data-i18n="d2_h">拒绝白嫖批量号</h3>
+        <p data-i18n="d2_p">绝不使用机器批量注册的免费试用账号。服务极其稳定，无需担忧服务商的大规模清退。</p>
+        <span class="tag" data-i18n="d2_t">Zero Account-Farms</span>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-4 8-8 9-4-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3 data-i18n="d3_h">拒绝模型欺骗</h3>
+        <p data-i18n="d3_p">确保所付即所得。杜绝用低端模型假冒高端模型返回结果，本来的最高品质始终如一。</p>
+        <span class="tag" data-i18n="d3_t">Anti-Spoofing</span>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><path d="M4 4l16 16"/></svg></div>
+        <h3 data-i18n="d4_h">无数据窃取转卖</h3>
+        <p data-i18n="d4_p">区别于后台擅自截留、存储并转卖用户提示词的廉价代理，我们保障完全透明的数据传输链路。</p>
+        <span class="tag" data-i18n="d4_t">Zero-Log Privacy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section id="trust">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker" data-i18n="trust_kicker">信任与合规保障</div>
+      <h2 data-i18n="trust_title">值得托付的商业基石</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6"/></svg></div>
+        <div><h3 data-i18n="t1_h">正规德国注册公司</h3><p data-i18n="t1_p">依据德国严苛的商业法注册并运营，提供德标商业合同与完善的法律保障。</p></div>
+      </div>
+      <div class="trust-item reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M9 12h6M9 16h6M14 2v5h5"/></svg></div>
+        <div><h3 data-i18n="t2_h">正规发票开具 (发票)</h3><p data-i18n="t2_p">支持开具符合企业财务合规要求的正规发票，便于报销与税务申报。</p></div>
+      </div>
+      <div class="trust-item reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h4"/></svg></div>
+        <div><h3 data-i18n="t3_h">完整审计日志</h3><p data-i18n="t3_p">提供详尽的 API 调用记录，方便企业进行端到端的安全审计 (Full Auditing)。</p></div>
+      </div>
+      <div class="trust-item reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div><h3 data-i18n="t4_h">透明的日志留存策略</h3><p data-i18n="t4_p">默认 30 天留存供故障排查，期满自动销毁。支持 7 天留存或"零数据留存 (ZDR)"定制策略。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section id="arch">
+  <div class="wrap arch">
+    <div class="arch-copy reveal">
+      <div class="kicker" data-i18n="arch_kicker">分布式基础设施</div>
+      <h2 data-i18n="arch_title">集群安全 · 无单点故障</h2>
+      <ul class="arch-list">
+        <li><span class="bullet"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><strong data-i18n="a1_h">多节点高可用：</strong><span data-i18n="a1_p">运行于多个分布式独立代理引擎服务器 (PES)。单节点故障时，流量自动无缝切换，保证业务持续在线。</span></span></li>
+        <li><span class="bullet"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><strong data-i18n="a2_h">节点协同与无缝同步：</strong><span data-i18n="a2_p">中央控制面板实时调度各节点，确保消耗额度、请求日志与速率限制以极低延迟实时同步。</span></span></li>
+        <li><span class="bullet"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><strong data-i18n="a3_h">物理与逻辑双重隔离：</strong><span data-i18n="a3_p">每个网关节点均为独立沙盒化部署。单节点异常无法蔓延至其他节点或主控制台，确保密钥与数据万无一失。</span></span></li>
+        <li><span class="bullet"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><strong data-i18n="a4_h">灵活的多网关架构：</strong><span data-i18n="a4_p">完美支持 LiteLLM 与高性能 Bifrost，并可按企业需求部署专有代理平台，经严格网络隔离加固。</span></span></li>
+      </ul>
+    </div>
+    <div class="arch-visual reveal">
+      <svg viewBox="0 0 420 320" role="img" aria-label="Multi-PES architecture diagram">
+        <defs>
+          <linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2BE68A"/><stop offset="1" stop-color="#27C7FF"/></linearGradient>
+          <filter id="gl"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- control plane -->
+        <rect x="110" y="20" width="200" height="48" rx="11" fill="rgba(43,230,138,.1)" stroke="url(#ag)" stroke-width="1.5"/>
+        <text x="210" y="42" text-anchor="middle" fill="#EAF2F7" font-family="Sora,sans-serif" font-size="13" font-weight="700">Control Plane</text>
+        <text x="210" y="58" text-anchor="middle" fill="#90A4BC" font-family="monospace" font-size="8">identity · billing · routing</text>
+        <!-- links -->
+        <g stroke="url(#ag)" stroke-width="1.6" opacity=".6" fill="none">
+          <path d="M170 68 L80 150"/><path d="M210 68 L210 150"/><path d="M250 68 L340 150"/>
+        </g>
+        <!-- PES nodes -->
+        <g font-family="Sora,sans-serif" font-weight="700" font-size="12" fill="#EAF2F7">
+          <g><rect x="30" y="150" width="100" height="58" rx="11" fill="rgba(39,199,255,.09)" stroke="#27C7FF" stroke-width="1.4" filter="url(#gl)"/><text x="80" y="176" text-anchor="middle">PES&#8201;1</text><text x="80" y="194" text-anchor="middle" fill="#90A4BC" font-family="monospace" font-size="8.5" font-weight="400">LiteLLM · Postgres</text></g>
+          <g><rect x="160" y="150" width="100" height="58" rx="11" fill="rgba(39,199,255,.09)" stroke="#27C7FF" stroke-width="1.4" filter="url(#gl)"/><text x="210" y="176" text-anchor="middle">PES&#8201;2</text><text x="210" y="194" text-anchor="middle" fill="#90A4BC" font-family="monospace" font-size="8.5" font-weight="400">Bifrost · Postgres</text></g>
+          <g><rect x="290" y="150" width="100" height="58" rx="11" fill="rgba(39,199,255,.09)" stroke="#27C7FF" stroke-width="1.4" filter="url(#gl)"/><text x="340" y="176" text-anchor="middle">PES&#8201;N</text><text x="340" y="194" text-anchor="middle" fill="#90A4BC" font-family="monospace" font-size="8.5" font-weight="400">Custom · Isolated</text></g>
+        </g>
+        <!-- model targets -->
+        <g stroke="rgba(124,247,192,.4)" stroke-width="1.2" stroke-dasharray="3 4" fill="none">
+          <path d="M80 208 L210 270"/><path d="M210 208 L210 270"/><path d="M340 208 L210 270"/>
+        </g>
+        <rect x="120" y="270" width="180" height="38" rx="10" fill="rgba(43,230,138,.08)" stroke="url(#ag)" stroke-width="1.3"/>
+        <text x="210" y="294" text-anchor="middle" fill="#7CF7C0" font-family="monospace" font-size="11">Premium AI Models</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROVIDERS ============ -->
+<section id="providers">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker" data-i18n="prov_kicker">全模型覆盖</div>
+      <h2 data-i18n="prov_title">一个密钥，接入所有顶级模型</h2>
+      <p data-i18n="prov_sub">无缝兼容您已在使用的对话、代码、图像、视频与语音 AI，以及主流客户端与智能体。</p>
+    </div>
+
+    <!-- LLMs -->
+    <div class="prov-group reveal">
+      <div class="prov-cat"><span class="cat-line"></span><span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-4 4V5z"/></svg></span><h3 data-i18n="prov_cat1">大语言模型 · 对话与代码</h3><span class="cat-line"></span></div>
+      <div class="pchips">
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24"><g stroke="#D97757" stroke-width="2.2" stroke-linecap="round"><path d="M12 2.5v19M3.8 7.2l16.4 9.6M20.2 7.2L3.8 16.8"/></g></svg></span><span class="pname">Anthropic Claude<span class="pmeta">Opus · Sonnet · Haiku</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#10A37F" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3l7.5 4.3v8.6L12 20.2 4.5 15.9V7.3z"/><path d="M12 7v5l4 2.3"/></svg></span><span class="pname">OpenAI<span class="pmeta">GPT · Codex</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24"><path d="M12 2c.6 5.4 2.6 8 8 8.5-5.4.6-7.4 3.1-8 8.5-.6-5.4-2.6-8-8-8.5 5.4-.6 7.4-3.1 8-8.5z" fill="#4285F4"/></svg></span><span class="pname">Google<span class="pmeta">Gemini · Antigravity</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#4D6BFE" stroke-width="1.8" stroke-linecap="round"><path d="M4 9c5 0 7 3.5 9 3.5S16 9 20 8"/><circle cx="8" cy="14.5" r="1.3" fill="#4D6BFE" stroke="none"/></svg></span><span class="pname">DeepSeek<span class="pmeta">V3 · R1</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24"><g fill="#FF7000"><rect x="3" y="5" width="4" height="4"/><rect x="3" y="11" width="4" height="4"/><rect x="10" y="5" width="4" height="4"/><rect x="17" y="5" width="4" height="4"/><rect x="10" y="11" width="4" height="4" opacity=".65"/><rect x="17" y="11" width="4" height="4"/></g></svg></span><span class="pname">Mistral<span class="pmeta">Large</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#E7F0F5" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></span><span class="pname">xAI<span class="pmeta">Grok</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#0866FF" stroke-width="2"><path d="M7 8c-3 0-4 8 0 8 3 0 4-8 0-8zm10 0c3 0 4 8 0 8-3 0-4-8 0-8z"/></svg></span><span class="pname">Meta<span class="pmeta">Llama</span></span></div>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="prov-group reveal">
+      <div class="prov-cat"><span class="cat-line"></span><span class="cat-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="9.5" r="1.5"/></svg></span><h3 data-i18n="prov_cat2">图像生成</h3><span class="cat-line"></span></div>
+      <div class="pchips">
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"><path d="M4 16h16l-2 4H6z"/><path d="M12 3v11M12 4c4 1 6 4 6 10H12"/></svg></span><span class="pname">Midjourney</span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#C77DFF" stroke-width="1.8"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M9 9l6 6M15 9l-6 6"/></svg></span><span class="pname">FLUX<span class="pmeta">Black Forest</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#F9C74F" stroke-width="1.9" stroke-linecap="round"><path d="M16 8c0-2-2-3.5-5-3.5S7 6 7 7.5 8 10 11 10s5 1 5 2.5-2 3.5-5 3.5-5-1.5-5-3.5"/></svg></span><span class="pname">Stable Diffusion<span class="pmeta">SD3</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24"><path d="M12 2c.6 5.4 2.6 8 8 8.5-5.4.6-7.4 3.1-8 8.5-.6-5.4-2.6-8-8-8.5 5.4-.6 7.4-3.1 8-8.5z" fill="#34A853"/></svg></span><span class="pname">Google Imagen<span class="pmeta">Nano Banana</span></span></div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="prov-group reveal">
+      <div class="prov-cat"><span class="cat-line"></span><span class="cat-ico"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></span><h3 data-i18n="prov_cat3">视频生成</h3><span class="cat-line"></span></div>
+      <div class="pchips">
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#10A37F" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M10 9.5l5 2.5-5 2.5z" fill="#10A37F"/></svg></span><span class="pname">OpenAI Sora</span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24"><path d="M12 2c.6 5.4 2.6 8 8 8.5-5.4.6-7.4 3.1-8 8.5-.6-5.4-2.6-8-8-8.5 5.4-.6 7.4-3.1 8-8.5z" fill="#EA4335"/></svg></span><span class="pname">Google Veo</span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#E7F0F5" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19L19 5M5 19h7M5 19v-7"/></svg></span><span class="pname">Runway<span class="pmeta">Gen-3</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#27C7FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 8v8M10 12l5-4M10 12l5 4"/></svg></span><span class="pname">Kling</span></div>
+      </div>
+    </div>
+
+    <!-- Voice -->
+    <div class="prov-group reveal">
+      <div class="prov-cat"><span class="cat-line"></span><span class="cat-ico"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><h3 data-i18n="prov_cat4">语音合成与识别</h3><span class="cat-line"></span></div>
+      <div class="pchips">
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24"><g fill="#E7F0F5"><rect x="8" y="4" width="3" height="16" rx="1"/><rect x="13" y="4" width="3" height="16" rx="1"/></g></svg></span><span class="pname">ElevenLabs<span class="pmeta">TTS</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#10A37F" stroke-width="1.9" stroke-linecap="round"><path d="M4 12h2M9 7v10M14 4v16M19 9v6"/></svg></span><span class="pname">OpenAI<span class="pmeta">TTS · Realtime</span></span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#8CE3FF" stroke-width="1.9" stroke-linecap="round"><path d="M3 12h3M9 8v8M15 5v14M21 10v4"/></svg></span><span class="pname">Whisper<span class="pmeta">STT</span></span></div>
+      </div>
+    </div>
+
+    <!-- Apps & Agents -->
+    <div class="prov-group reveal">
+      <div class="prov-cat"><span class="cat-line"></span><span class="cat-ico"><svg viewBox="0 0 24 24"><path d="M9 7l-4 5 4 5M15 7l4 5-4 5"/></svg></span><h3 data-i18n="prov_cat5">兼容客户端与智能体</h3><span class="cat-line"></span></div>
+      <div class="pchips">
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#D97757" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 9l3 3-3 3M13 15h4"/></svg></span><span class="pname">Claude Code</span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#E7F0F5" stroke-width="1.8" stroke-linejoin="round"><path d="M5 3l14 7-6 1.8L11 18z"/></svg></span><span class="pname">Cursor</span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#2BE68A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8l4 4-4 4M13 16h5"/></svg></span><span class="pname">Cline</span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#2BE68A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4c0 6 2.7 9 6 9s6-3 6-9M9 13l-2 7M15 13l2 7M12 13.5V21"/></svg></span><span class="pname">OpenClaw</span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#27C7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l5 4-5 4M11 8l5 4-5 4M19 8v8"/></svg></span><span class="pname">Hermes</span></div>
+        <div class="pchip"><span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#90A4BC" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></span><span class="pname" data-i18n="prov_compat">OpenAI 兼容客户端</span></div>
+      </div>
+    </div>
+
+    <p class="prov-note" data-i18n="prov_note">所有商标及标识均归各自所有者所有，此处仅用于表示兼容性。</p>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section id="cta" class="finalcta">
+  <div class="wrap">
+    <div class="panel reveal">
+      <div class="kicker" data-i18n="cta_kicker">现在开始</div>
+      <h2 data-i18n="cta_title">在值得信赖的基石上运行您的 AI</h2>
+      <p class="hero-sub" data-i18n="cta_sub" style="margin:16px auto 30px">立即升级至 EuroGate.ai —— 极速、稳定、100% 符合 GDPR 的安全 AI 接入网关。</p>
+      <div class="hero-cta" style="margin-bottom:6px">
+        <a href="https://eurogate.ai" class="btn btn-primary" data-i18n="cta_btn1">立即获取安全 API 密钥</a>
+        <a href="https://eurogate.ai" class="btn btn-ghost" data-i18n="cta_btn2">开启极速测试通道</a>
+      </div>
+      <div class="domain">→ EuroGate.ai</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="brand" style="font-size:16px">EuroGate<span class="dot">.ai</span></div>
+    <div data-i18n="foot_tag">主权级 AI 路由 · 源自德国工程技术</div>
+    <div class="footflags">🇩🇪 Frankfurt · 🇪🇺 GDPR · © 2026</div>
+  </div>
+</footer>
+
+<script>
+/* ---------------- i18n ---------------- */
+const I18N = {
+  zh:{
+    nav_cta:"立即获取密钥",
+    hero_eyebrow:"德国工程 · 欧洲托管 · GDPR 合规",
+    hero_title_a:"主权级 AI 路由", hero_title_b:"源自德国工程技术",
+    hero_sub:"开启高端 AI 的安全通道。服务器完全托管于欧洲核心节点，极速、稳定且 100% 符合 GDPR 隐私标准。",
+    hero_cta1:"立即获取安全 API 密钥", hero_cta2:"开启极速测试通道",
+    chip_gdpr:"GDPR 合规", chip_zerolog:"零日志审计", chip_latency:"超低延迟", chip_legit:"100% 正规货源",
+    pillars_kicker:"核心价值", pillars_title:"为什么选择 EuroGate.ai", pillars_sub:"为企业级高频调用而生 —— 安全、合规、稳定。",
+    p1_h:"欧洲主权级隐私安全", p1_p:"托管于德国法兰克福。支持“零数据留存”策略，100% 遵循欧盟 GDPR 标准。您的提示词与商业机密永不用于模型训练。",
+    p2_h:"德系工程级极致性能", p2_p:"高并发多代理智能路由，超低延迟响应，以及强韧的容灾备份架构。专为企业级高频调用而生。",
+    p3_h:"企业级合规与信誉保证", p3_p:"彻底杜绝盗卡或批量刷号等不稳定货源。承诺无“模型欺骗”，提供持续高可用的正版 API 服务。",
+    diff_kicker:"核心差异化优势", diff_title:"EuroGate 与灰色代理商的区别", diff_sub:"告别频繁断连、隐私泄露与封号风险。",
+    d1_h:"拒绝盗卡欺诈", d1_p:"100% 采用合法合规的支付渠道，彻底规避因上游盗刷信用卡导致的服务封禁与法务风险。", d1_t:"Anti-Carding",
+    d2_h:"拒绝白嫖批量号", d2_p:"绝不使用机器批量注册的免费试用账号。服务极其稳定，无需担忧服务商的大规模清退。", d2_t:"Zero Account-Farms",
+    d3_h:"拒绝模型欺骗", d3_p:"确保所付即所得。杜绝用低端模型假冒高端模型返回结果，本来的最高品质始终如一。", d3_t:"Anti-Spoofing",
+    d4_h:"无数据窃取转卖", d4_p:"区别于后台擅自截留、存储并转卖用户提示词的廉价代理，我们保障完全透明的数据传输链路。", d4_t:"Zero-Log Privacy",
+    trust_kicker:"信任与合规保障", trust_title:"值得托付的商业基石",
+    t1_h:"正规德国注册公司", t1_p:"依据德国严苛的商业法注册并运营，提供德标商业合同与完善的法律保障。",
+    t2_h:"正规发票开具 (发票)", t2_p:"支持开具符合企业财务合规要求的正规发票，便于报销与税务申报。",
+    t3_h:"完整审计日志", t3_p:"提供详尽的 API 调用记录，方便企业进行端到端的安全审计 (Full Auditing)。",
+    t4_h:"透明的日志留存策略", t4_p:"默认 30 天留存供故障排查，期满自动销毁。支持 7 天留存或“零数据留存 (ZDR)”定制策略。",
+    arch_kicker:"分布式基础设施", arch_title:"集群安全 · 无单点故障",
+    a1_h:"多节点高可用：", a1_p:"运行于多个分布式独立代理引擎服务器 (PES)。单节点故障时，流量自动无缝切换，保证业务持续在线。",
+    a2_h:"节点协同与无缝同步：", a2_p:"中央控制面板实时调度各节点，确保消耗额度、请求日志与速率限制以极低延迟实时同步。",
+    a3_h:"物理与逻辑双重隔离：", a3_p:"每个网关节点均为独立沙盒化部署。单节点异常无法蔓延至其他节点或主控制台，确保密钥与数据万无一失。",
+    a4_h:"灵活的多网关架构：", a4_p:"完美支持 LiteLLM 与高性能 Bifrost，并可按企业需求部署专有代理平台，经严格网络隔离加固。",
+    gal_kicker:"宣传素材", gal_title:"广告横幅 · 自由选用", gal_sub:"中文本地化高端横幅，适用于各社交平台投放。",
+    g_a1_b:"主权级 AI 路由", g_a1_s:"技术与路由概念图",
+    g_a2_b:"支持 LiteLLM & Bifrost", g_a2_s:"多网关架构",
+    g_b1_b:"数据主权 · 隐私安全", g_b1_s:"安全与隐私概念图",
+    g_b2_b:"拒绝盗卡 · 零日志审计", g_b2_s:"安全功能特写",
+    g_c1_b:"德国技术 · 极速响应", g_c1_s:"速度与性能",
+    g_c2_b:"德国注册 · 发票合规", g_c2_s:"合规与发票",
+    g_d_b:"德国注册 · 发票合规 · 零日志审计", g_d_s:"安全合规组合",
+    g_e_b:"多网关路由 · 集群安全 · 拒绝盗卡", g_e_s:"架构与信任组合",
+    g_0_b:"全球通用横幅", g_0_s:"无文字，便于自定义叠加",
+    prov_kicker:"全模型覆盖", prov_title:"一个密钥，接入所有顶级模型",
+    prov_sub:"无缝兼容您已在使用的对话、代码、图像、视频与语音 AI，以及主流客户端与智能体。",
+    prov_cat1:"大语言模型 · 对话与代码", prov_cat2:"图像生成", prov_cat3:"视频生成",
+    prov_cat4:"语音合成与识别", prov_cat5:"兼容客户端与智能体",
+    prov_compat:"OpenAI 兼容客户端", prov_note:"所有商标及标识均归各自所有者所有，此处仅用于表示兼容性。",
+    cta_kicker:"现在开始", cta_title:"在值得信赖的基石上运行您的 AI",
+    cta_sub:"立即升级至 EuroGate.ai —— 极速、稳定、100% 符合 GDPR 的安全 AI 接入网关。",
+    cta_btn1:"立即获取安全 API 密钥", cta_btn2:"开启极速测试通道",
+    foot_tag:"主权级 AI 路由 · 源自德国工程技术"
+  },
+  en:{
+    nav_cta:"Get your key",
+    hero_eyebrow:"German Engineering · EU-Hosted · GDPR Compliant",
+    hero_title_a:"Sovereign AI Routing", hero_title_b:"German Engineering",
+    hero_sub:"The secure gateway to premium AI. Hosted in Europe's premier data hubs — high-speed, resilient, and 100% GDPR-compliant.",
+    hero_cta1:"Deploy your secure API key", hero_cta2:"Start your high-speed trial",
+    chip_gdpr:"GDPR Compliant", chip_zerolog:"Zero-Log Auditing", chip_latency:"Ultra-low latency", chip_legit:"100% Legitimate",
+    pillars_kicker:"Core Value", pillars_title:"Why EuroGate.ai", pillars_sub:"Built for enterprise-grade, high-frequency production — secure, compliant, reliable.",
+    p1_h:"Sovereign European Privacy", p1_p:"Hosted in Frankfurt, Germany. Zero-data-logging options and 100% GDPR-compliant. Your prompts stay private, secure, and training-free.",
+    p2_h:"German-Engineered Performance", p2_p:"High-speed multi-proxy routing, ultra-low latency, and resilient failover architecture. Built for uninterrupted production.",
+    p3_h:"Enterprise-Grade Integrity", p3_p:"No model spoofing, no cheap hacks, no carding fraud. Just legitimate, high-availability premium AI access.",
+    diff_kicker:"The EuroGate Difference", diff_title:"EuroGate vs. Grey-Market Resellers", diff_sub:"Say goodbye to dropouts, data leaks, and ban risk.",
+    d1_h:"Anti-Carding", d1_p:"Strictly clean, 100% legitimate billing. Zero risk of service bans from stolen credit cards or legal fallout.", d1_t:"Anti-Carding",
+    d2_h:"Zero Account-Farms", d2_p:"No bot-registered bulk trial accounts. Rock-solid stability, safe from provider crackdowns.", d2_t:"Zero Account-Farms",
+    d3_h:"Anti-Model Spoofing", d3_p:"You get the exact model you pay for. No secret downgrading to cheaper models behind the scenes.", d3_t:"Anti-Spoofing",
+    d4_h:"No Data Resale", d4_p:"Unlike proxies that read and resell your prompts, we guarantee a fully transparent, audited data path.", d4_t:"Zero-Log Privacy",
+    trust_kicker:"Trust & Compliance", trust_title:"A Business Foundation You Can Trust",
+    t1_h:"German Registered Company", t1_p:"Operated under strict German business law, providing robust legal protection and reliable SLAs.",
+    t2_h:"Corporate Invoicing (发票)", t2_p:"Fully compliant tax invoices generated for accounting and tax reporting.",
+    t3_h:"Complete Auditing Logs", t3_p:"Comprehensive, cryptographically sound usage records for full end-to-end compliance audits.",
+    t4_h:"Transparent Log Retention", t4_p:"30-day default for diagnostics, auto-purged after. Customizable 7-day or Zero-Data-Retention (ZDR) options.",
+    arch_kicker:"Distributed Infrastructure", arch_title:"Collective Security · Zero Single-Point-of-Failure",
+    a1_h:"Multi-Node Resiliency: ", a1_p:"Runs across multiple distributed, independent Proxy Engine Servers (PES). If a node fails, traffic reroutes seamlessly to keep you online.",
+    a2_h:"Seamless Orchestration: ", a2_p:"A centralized control plane orchestrates all nodes, syncing balances, usage logs, and rate limits in real-time with zero latency overhead.",
+    a3_h:"Isolated Hardening: ", a3_p:"Each node is sandboxed independently. A localized threat on one node never compromises others or the main control plane.",
+    a4_h:"Flexible Multi-Gateway: ", a4_p:"Full support for LiteLLM and high-performance Bifrost, plus custom proxy deployments — all hardened with strict isolation.",
+    gal_kicker:"Creative Assets", gal_title:"Ad Banners · Ready to Use", gal_sub:"Chinese-localized premium banners, ready for any social platform.",
+    g_a1_b:"Sovereign AI Routing", g_a1_s:"Tech & routing concept",
+    g_a2_b:"LiteLLM & Bifrost Support", g_a2_s:"Multi-gateway architecture",
+    g_b1_b:"Data Sovereignty · Privacy", g_b1_s:"Security & privacy concept",
+    g_b2_b:"Anti-Carding · Zero-Log", g_b2_s:"Security feature focus",
+    g_c1_b:"German Tech · Ultra-Fast", g_c1_s:"Speed & performance",
+    g_c2_b:"German Registered · Invoices", g_c2_s:"Compliance & invoicing",
+    g_d_b:"Registered · Invoices · Zero-Log", g_d_s:"Security + compliance combo",
+    g_e_b:"Multi-Gateway · Cluster · Anti-Carding", g_e_s:"Architecture + trust combo",
+    g_0_b:"Global Banner", g_0_s:"No text — ideal for custom overlays",
+    prov_kicker:"Full Model Coverage", prov_title:"One key. Every top model.",
+    prov_sub:"Seamlessly compatible with the chat, code, image, video and voice AI you already use — plus popular clients and agents.",
+    prov_cat1:"LLMs · Chat & Code", prov_cat2:"Image Generation", prov_cat3:"Video Generation",
+    prov_cat4:"Voice · TTS & STT", prov_cat5:"Compatible Apps & Agents",
+    prov_compat:"Any OpenAI-compatible client", prov_note:"All trademarks and logos are property of their respective owners; shown here to indicate compatibility only.",
+    cta_kicker:"Get Started", cta_title:"Run your AI on a platform you can actually trust",
+    cta_sub:"Switch to EuroGate.ai — a secure, high-speed, fully GDPR-compliant gateway to the world's leading AI models.",
+    cta_btn1:"Deploy your secure API key", cta_btn2:"Start your high-speed trial",
+    foot_tag:"Sovereign AI Routing · German Engineering"
+  },
+  ko:{
+    nav_cta:"API 키 발급",
+    hero_eyebrow:"독일 엔지니어링 · 유럽 호스팅 · GDPR 준수",
+    hero_title_a:"주권형 AI 라우팅", hero_title_b:"독일 기술력으로 완성하다",
+    hero_sub:"프리미엄 AI로 가는 가장 안전한 관문. 유럽 핵심 인프라에 호스팅되어 초고속·안정성·100% GDPR 준수를 보장합니다.",
+    hero_cta1:"지금 안전한 API 키 발급받기", hero_cta2:"초고속 테스트 시작하기",
+    chip_gdpr:"GDPR 준수", chip_zerolog:"제로 로그 감사", chip_latency:"초저지연", chip_legit:"100% 정식 채널",
+    pillars_kicker:"핵심 가치", pillars_title:"왜 EuroGate.ai 인가", pillars_sub:"기업용 고빈도 호출을 위해 탄생 — 안전, 준수, 안정성.",
+    p1_h:"유럽 기준의 데이터 주권", p1_p:"독일 프랑크푸르트 호스팅. 제로 데이터 보존(Zero-Retention)과 100% GDPR 준수. 데이터는 절대 모델 학습에 사용되지 않습니다.",
+    p2_h:"독일 엔지니어링의 압도적 성능", p2_p:"고성능 멀티 프록시 라우팅, 초저지연 속도, 무중단 장애 복구(Failover) 아키텍처로 끊김 없는 운영을 제공합니다.",
+    p3_h:"기업 수준의 투명성과 신뢰", p3_p:"불법 카드 도용·허위 체험 계정 없는 합법 서비스. 저가 모델 바꿔치기(Spoofing) 없는 정품 프리미엄 API를 보장합니다.",
+    diff_kicker:"EuroGate만의 차별점", diff_title:"EuroGate vs 불법 재판매 대조", diff_sub:"잦은 끊김, 데이터 유출, 차단 위험에서 벗어나세요.",
+    d1_h:"도용 카드 결제 배제", d1_p:"100% 정식 결제망 사용. 도용 카드로 인한 갑작스러운 서비스 차단 및 법적 위험이 전혀 없습니다.", d1_t:"Anti-Carding",
+    d2_h:"계정 대량 양산 금지", d2_p:"봇으로 자동 등록한 대량 체험 계정 대신 합법 계약 계정만 사용해 신뢰도가 높습니다.", d2_t:"Zero Account-Farms",
+    d3_h:"모델 바꿔치기 제로", d3_p:"비용은 고급 모델로 청구하고 하위 모델로 응답하는 행위를 철저히 방지하여 최고 품질을 유지합니다.", d3_t:"Anti-Spoofing",
+    d4_h:"데이터 탈취·전매 없음", d4_p:"사용자 대화를 임의 보관·수집·전매하는 불법 프록시와 달리 완전 투명한 데이터 전송 경로를 보장합니다.", d4_t:"Zero-Log Privacy",
+    trust_kicker:"신뢰 및 준수 보장", trust_title:"믿고 맡길 수 있는 비즈니스 기반",
+    t1_h:"정식 독일 법인 운영", t1_p:"독일 상법의 엄격한 규제를 적용받는 정식 등록 법인으로, 투명하고 법적 보호를 받는 거래를 보장합니다.",
+    t2_h:"공식 인보이스 발행 (发票)", t2_p:"기업 회계 및 경비 처리를 위한 공인 세금 영수증 및 인보이스 발급을 완벽하게 지원합니다.",
+    t3_h:"완전한 감사 로그", t3_p:"모든 API 사용 기록의 상세 로그를 제공하여 기업 보안 규정 준수 및 감사(Audit)를 원활히 수행합니다.",
+    t4_h:"투명한 로그 보존 정책", t4_p:"기본 30일 보존 후 자동 파기. 보안 정책에 따라 7일 보존 또는 즉시 파기(ZDR) 맞춤 설정이 가능합니다.",
+    arch_kicker:"분산형 인프라", arch_title:"결합 보안 · 단일 장애점 차단",
+    a1_h:"다중 노드 이중화: ", a1_p:"다수의 분산 독립 프록시 엔진 서버(PES)로 실행됩니다. 노드 장애 시 트래픽이 즉시 대체 작동해 서비스가 유지됩니다.",
+    a2_h:"노드 협동·실시간 동기화: ", a2_p:"컨트롤 플레인이 모든 노드를 실시간 조율하여 잔액·사용 로그·레이트 리밋을 지연 없이 동기화합니다.",
+    a3_h:"격리 기반 입체 방어: ", a3_p:"각 노드는 독립 샌드박스로 배포됩니다. 한 노드의 위협이 다른 노드나 핵심 컨트롤 플레인에 영향을 주지 않습니다.",
+    a4_h:"유연한 멀티 게이트웨이: ", a4_p:"LiteLLM과 고성능 Bifrost를 완벽 지원하며, 맞춤형 프록시 배포와 엄격한 격리 하드닝을 제공합니다.",
+    gal_kicker:"홍보 자료", gal_title:"광고 배너 · 자유 사용", gal_sub:"중문 현지화 프리미엄 배너, 모든 소셜 플랫폼에 바로 사용 가능.",
+    g_a1_b:"주권형 AI 라우팅", g_a1_s:"기술 & 라우팅 컨셉",
+    g_a2_b:"LiteLLM & Bifrost 지원", g_a2_s:"멀티 게이트웨이 구조",
+    g_b1_b:"데이터 주권 · 프라이버시", g_b1_s:"보안 & 프라이버시 컨셉",
+    g_b2_b:"도용 카드 배제 · 제로 로그", g_b2_s:"보안 기능 특화",
+    g_c1_b:"독일 기술 · 초고속", g_c1_s:"속도 & 성능",
+    g_c2_b:"독일 등록 · 인보이스", g_c2_s:"준수 & 인보이스",
+    g_d_b:"등록 · 인보이스 · 제로 로그", g_d_s:"보안+준수 조합",
+    g_e_b:"멀티 게이트웨이 · 클러스터 · 안티카딩", g_e_s:"아키텍처+신뢰 조합",
+    g_0_b:"글로벌 배너", g_0_s:"텍스트 없음 — 커스텀 오버레이용",
+    prov_kicker:"전 모델 커버리지", prov_title:"하나의 키로 모든 최상위 모델",
+    prov_sub:"이미 사용 중인 대화·코드·이미지·영상·음성 AI는 물론 인기 클라이언트와 에이전트까지 매끄럽게 호환됩니다.",
+    prov_cat1:"대규모 언어 모델 · 대화 & 코드", prov_cat2:"이미지 생성", prov_cat3:"영상 생성",
+    prov_cat4:"음성 합성 & 인식", prov_cat5:"호환 클라이언트 & 에이전트",
+    prov_compat:"OpenAI 호환 클라이언트", prov_note:"모든 상표 및 로고는 각 소유자의 자산이며, 호환성 표시 목적으로만 사용됩니다.",
+    cta_kicker:"지금 시작", cta_title:"신뢰할 수 있는 플랫폼에서 AI를 운영하세요",
+    cta_sub:"EuroGate.ai로 전환하세요 — 초고속·안정·100% GDPR 준수의 안전한 AI 접속 게이트웨이.",
+    cta_btn1:"지금 안전한 API 키 발급받기", cta_btn2:"초고속 테스트 시작하기",
+    foot_tag:"주권형 AI 라우팅 · 독일 엔지니어링"
+  }
+};
+
+function setLang(lang){
+  const dict = I18N[lang] || I18N.zh;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v = dict[el.getAttribute('data-i18n')];
+    if(v!=null) el.innerHTML = v;
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.langsw button').forEach(b=>{
+    b.classList.toggle('active', b.getAttribute('data-lang')===lang);
+  });
+  try{ localStorage.setItem('eg_lang', lang); }catch(e){}
+}
+
+/* init: saved pref or default zh */
+(function(){
+  let saved = 'zh';
+  try{ saved = localStorage.getItem('eg_lang') || 'zh'; }catch(e){}
+  setLang(saved);
+})();
+
+/* reveal on scroll */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%3*70)+'ms'; io.observe(el); });
+</script>
+</body>
+</html>
